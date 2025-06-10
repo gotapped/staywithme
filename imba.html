@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cheat Catalog</title>
+  <style>
+    body {
+      background-color: #1f1f1f; /* Темный фон, без изменений */
+      color: #f1f1f1;
+      font-family: 'Consolas', 'Monaco', 'Lucida Console', 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 80px; /* Достаточно места для логотипа + отступ */
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background-color: rgba(0, 0, 0, 0.7); /* Прозрачность контейнера возвращена к 0.7 */
+      border-radius: 10px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #00ff99;
+      border-left: 4px solid #00ff99;
+      padding-left: 10px;
+    }
+
+    .section.untrusted h2 {
+      color: #ff5050;
+      border-color: #ff5050;
+    }
+
+    .section.discontinued h2 {
+      color: #888888;
+      border-color: #888888;
+    }
+
+    .section-description {
+      font-size: 14px;
+      color: #b0b0b0;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      padding-left: 14px;
+    }
+
+    .section.untrusted .section-description {
+      color: #ff9999;
+    }
+
+    .section.discontinued .section-description {
+      color: #aaaaaa;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      background: rgba(26, 26, 26, 0.95); /* Менее прозрачные карточки (0.95) */
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: 0 0 12px rgba(0, 255, 153, 0.1);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .section.untrusted .card {
+      box-shadow: 0 0 12px rgba(255, 80, 80, 0.1);
+    }
+
+    .section.discontinued .card {
+      background: rgba(22, 22, 22, 0.9); /* Менее прозрачные карточки (0.9) */
+      box-shadow: 0 0 12px rgba(136, 136, 136, 0.1);
+      opacity: 0.8;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(0, 255, 153, 0.2);
+    }
+
+    .section.untrusted .card:hover {
+      box-shadow: 0 0 18px rgba(255, 80, 80, 0.2);
+    }
+
+    .section.discontinued .card:hover {
+      box-shadow: 0 0 18px rgba(136, 136, 136, 0.2);
+      opacity: 1;
+    }
+
+    .card .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .card .name:hover {
+      color: #00ccff;
+    }
+
+    .section.discontinued .card .name {
+      color: #aaa;
+      text-decoration: line-through;
+    }
+
+    .card .item {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #ccc;
+    }
+
+    .section.discontinued .card .item {
+      color: #888;
+    }
+
+    .score-high { color: #00ff00; }
+    .score-mid { color: orange; }
+    .score-low { color: red; }
+
+    .discord-logo-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .discord-logo-container:hover {
+      transform: scale(1.1);
+    }
+
+    .discord-logo-container img {
+      width: 50px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="section reputable">
+      <h2>✅ Trusted Cheats</h2>
+      <p class="section-description">These are reliable products, but their status may change over time.</p>
+      <div class="card-grid">
+
+        <a href="https://discord.gg/matchalol" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Matcha</div>
+            <div class="item">Release: 08/2024</div>
+            <div class="item">Trust Score: <span class="score-high">85</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $11.50</div>
+            <div class="item">Resellers: ✅</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+        <a href="https://discord.gg/asmlol" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Assembly</div>
+            <div class="item">Release: 2024</div>
+            <div class="item">Trust Score: <span class="score-high">80</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $8</div>
+            <div class="item">Resellers: ✅</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+        <a href="https://projectvector.cc" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Vector</div>
+            <div class="item">Release: 10/2024</div>
+            <div class="item">Trust Score: <span class="score-high">75</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $10</div>
+            <div class="item">Resellers: ✅</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+        <a href="https://discord.gg/severe1" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Severe</div>
+            <div class="item">Release: 06/2023</div>
+            <div class="item">Trust Score: <span class="score-high">73</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $20</div>
+            <div class="item">Resellers: ❌</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+        <a href="https://matrixhubs.shop" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Matrix</div>
+            <div class="item">Release: 01/2024</div>
+            <div class="item">Trust Score: <span class="score-mid">65</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $5</div>
+            <div class="item">Resellers: ❌</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+        <a href="https://discord.gg/getronin" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Ronin</div>
+            <div class="item">Release: 03/2025</div>
+            <div class="item">Trust Score: <span class="score-mid">50</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $15</div>
+            <div class="item">Resellers: ✅</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+       
+    <div class="section untrusted">
+      <h2>⚠️ Untrusted Cheats</h2>
+      <p class="section-description">These products are either very new, generally mistrusted by the community, or occasionally, of poor quality.</p>
+      <div class="card-grid">
+
+        <a href="https://aimmy.dev/" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Aimmy</div>
+            <div class="item">Release: 09/2024</div>
+            <div class="item">Trust Score: <span class="score-mid">47</span></div>
+            <div class="item">Type: AI</div>
+            <div class="item">Price: Free</div>
+            <div class="item">Resellers: ❌</div>
+            <div class="item">Stream Proof: ❌</div>
+          </div>
+        </a>
+
+        <a href="https://discord.gg/vro" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Photon</div>
+            <div class="item">Release: 07/2024</div>
+            <div class="item">Trust Score: <span class="score-mid">45</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $20</div>
+            <div class="item">Resellers: ✅</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+        <a href="https://discord.gg/cframe" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Evolve</div>
+            <div class="item">Release: 03/2025</div>
+            <div class="item">Trust Score: <span class="score-mid">30</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: $7</div>
+            <div class="item">Resellers: ❌</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+        <a href="https://discord.gg/thunderexternal" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Thunder Client</div>
+            <div class="item">Release: 07/2024</div>
+            <div class="item">Trust Score: <span class="score-mid">30</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: Free</div>
+            <div class="item">Stream Proof: ✅</div>
+          </div>
+        </a>
+        <a href="https://nezur.io/" target="_blank" class="card-link">
+          <div class="card">
+            <div class="name">Nezur</div>
+            <div class="item">Release: 09/2024</div>
+            <div class="item">Trust Score: <span class="score-low">10</span></div>
+            <div class="item">Type: External</div>
+            <div class="item">Price: Free</div>           
+            <div class="item">Stream Proof: ❌</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+
+    <div class="section discontinued">
+      <h2>✖️ Discontinued Products</h2>
+      <p class="section-description">These products have been discontinued gracefully, without scams or malicious actions.</p>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="name">RC-M</div>
+          <div class="item">Release: 06/2015</div>
+          <div class="item">Last Detected: 12/2018</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: Internal</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">X11 🔒</div>
+          <div class="item">Release: 10/2018</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: Internal</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Nord 💸</div>
+          <div class="item">Release: 12/2022</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Athena 🔒</div>
+          <div class="item">Release: 05/2023</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Atlas 💸</div>
+          <div class="item">Release: 07/2021</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Roware 💸</div>
+          <div class="item">Release: 03/2022</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: Internal</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Elexe</div>
+          <div class="item">Release: 10/2022</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: Internal</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Celex</div>
+          <div class="item">Release: 06/2023</div>
+          <div class="item">Last Detected: 08/2023</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Hyper 🔒</div>
+          <div class="item">Release: 04/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Hysteria</div>
+          <div class="item">Release: 07/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Silence</div>
+          <div class="item">Release: 02/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Core</div>
+          <div class="item">Release: 10/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: AI</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Void</div>
+          <div class="item">Release: 01/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Tulpical 💸</div>
+          <div class="item">Release: 04/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Kiwi X 💸</div>
+          <div class="item">Release: 03/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: AI</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Celestial 💸</div>
+          <div class="item">Release: 08/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: Internal</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Legit</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Win</div>
+          <div class="item">Release: 08/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ❌</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+        <div class="card">
+          <div class="name">Santoware</div>
+          <div class="item">Release: 01/2024</div>
+          <div class="item">Last Detected: Never</div>
+          <div class="item">Stream Proof: ✔️</div>
+          <div class="item">Type: External</div>
+          <div class="item">CPU Support: Both</div>
+          <div class="item">Play Style: Both</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <a href="https://discord.gg/9MJrbeupBz" target="_blank" class="discord-logo-container">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKWBPH_zlCOipWfslhiZSjBNaVxiSzMfWaYg&s" alt="Discord Logo">
+  </a>
+
+</body>
+</html>
