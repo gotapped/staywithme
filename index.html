@@ -9,15 +9,12 @@
       --pfp-url: url('https://i.pinimg.com/236x/74/2e/6f/742e6f38d2e84805caa63ec1fae14aea.jpg');
       --orange: #ff9900;
     }
-
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background-color: #0d0d0d;
       color: #f5f5f5;
@@ -29,12 +26,10 @@
       text-align: center;
       overflow: hidden;
     }
-
     .container {
       padding: 30px;
       animation: flicker 6s infinite alternate;
     }
-
     .profile {
       display: flex;
       align-items: center;
@@ -43,7 +38,6 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-
     .pfp {
       width: 120px;
       height: 120px;
@@ -54,42 +48,51 @@
       background-size: cover;
       background-position: center;
     }
-
     .nicknames {
       text-align: left;
       border-left: 4px solid var(--orange);
       padding-left: 20px;
-      animation: glitch 8s infinite;
     }
-
     .nicknames h3 {
       font-size: 1.3rem;
       margin-bottom: 10px;
       color: var(--orange);
     }
-
     .nicknames h4 {
       font-size: 1.1rem;
       color: #ccc;
     }
-
+    .audio-controls {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .play-pause-btn {
+      background: none;
+      border: none;
+      color: var(--orange);
+      font-size: 1.5rem;
+      cursor: pointer;
+      text-shadow: 0 0 5px var(--orange);
+    }
+    .volume-slider {
+      width: 100px;
+      accent-color: var(--orange);
+    }
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
       color: var(--orange);
       text-shadow: 0 0 10px var(--orange);
-      animation: glitch 7s infinite;
     }
-
     h2 {
       font-size: 1rem;
       color: #aaa;
       margin-bottom: 30px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      animation: flicker 5s infinite;
     }
-
     .button {
       display: inline-block;
       padding: 14px 32px;
@@ -100,13 +103,12 @@
       border-radius: 8px;
       transition: background-color 0.3s;
       box-shadow: 0 0 12px var(--orange);
-      animation: glitch 9s infinite;
+      margin-top: 20px;
+      font-family: 'Press Start 2P', monospace;
     }
-
     .button:hover {
       background-color: #e67e00;
     }
-
     footer {
       position: fixed;
       bottom: 20px;
@@ -115,7 +117,6 @@
       color: #444;
       text-align: center;
     }
-
     .tagline {
       position: fixed;
       bottom: 10px;
@@ -123,33 +124,19 @@
       font-size: 0.8rem;
       color: var(--orange);
       text-shadow: 0 0 5px var(--orange);
-      animation: glitch 6s infinite;
       pointer-events: none;
     }
-
-    @keyframes glitch {
-      0% { transform: translate(0); opacity: 1; }
-      5% { transform: translate(-1px, 1px); }
-      10% { transform: translate(1px, -1px); }
-      20% { transform: translate(-1px, 1px); opacity: 0.9; }
-      30% { transform: translate(1px, -1px); }
-      40% { transform: translate(0); opacity: 1; }
-      60% { transform: translate(0); }
-      80% { transform: translate(0); }
-      100% { transform: translate(0); }
-    }
-
     @keyframes flicker {
       0%, 100% { opacity: 1; }
-      5% { opacity: 0.95; }
-      10% { opacity: 0.85; }
-      15% { opacity: 1; }
-      20% { opacity: 0.9; }
-      25% { opacity: 1; }
-      40% { opacity: 0.95; }
+      10% { opacity: 0.95; }
+      20% { opacity: 0.85; }
+      30% { opacity: 1; }
+      40% { opacity: 0.9; }
       50% { opacity: 1; }
-      70% { opacity: 0.9; }
-      90% { opacity: 1; }
+      60% { opacity: 0.95; }
+      70% { opacity: 1; }
+      80% { opacity: 1; }
+      90% { opacity: 0.9; }
     }
   </style>
 </head>
@@ -160,17 +147,45 @@
       <div class="nicknames">
         <h3>сабака взрывака</h3>
         <h4>sneakyfreakybosinn</h4>
+        <div class="audio-controls">
+          <button class="play-pause-btn" onclick="togglePlay()">▶</button>
+          <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5" oninput="setVolume(this.value)">
+        </div>
       </div>
     </div>
     <h1>СУХАРИКИ ТРИ КОРОЧКИ</h1>
     <h2>reject humanity, stay soy</h2>
     <a href="https://fakecrime.bio/bloodthirsty" class="button" target="_blank">Fakecrime</a>
   </div>
+  <audio id="background-music" loop>
+    <source src="https://files.catbox.moe/75zrgj.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <footer>
     made with 💀 by gottaped
   </footer>
   <div class="tagline">
     захвачено @superdurable
   </div>
+  <script>
+    const audio = document.getElementById('background-music');
+    const playPauseBtn = document.querySelector('.play-pause-btn');
+    let isPlaying = false;
+
+    function togglePlay() {
+      if (isPlaying) {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+      } else {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function setVolume(value) {
+      audio.volume = value;
+    }
+  </script>
 </body>
 </html>
