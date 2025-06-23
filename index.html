@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --pfp-url: url('https://i.pinimg.com/236x/74/2e/6f/742e6f38d2e84805caa63ec1fae14aea.jpg'); /* ← СЮДА СВОЮ АВУ */
+      --pfp-url: url('https://i.pinimg.com/236x/74/2e/6f/742e6f38d2e84805caa63ec1fae14aea.jpg');
       --orange: #ff9900;
     }
 
@@ -27,10 +27,12 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      overflow: hidden;
     }
 
     .container {
       padding: 30px;
+      animation: flicker 6s infinite alternate;
     }
 
     .profile {
@@ -43,8 +45,8 @@
     }
 
     .pfp {
-      width: 145px;
-      height: 145px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 4px solid var(--orange);
       box-shadow: 0 0 20px var(--orange);
@@ -57,24 +59,26 @@
       text-align: left;
       border-left: 4px solid var(--orange);
       padding-left: 20px;
+      animation: glitch 8s infinite;
     }
 
     .nicknames h3 {
-      font-size: 2rem;
+      font-size: 1.3rem;
       margin-bottom: 10px;
       color: var(--orange);
     }
 
     .nicknames h4 {
-      font-size: 1.6rem;
+      font-size: 1.1rem;
       color: #ccc;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       margin-bottom: 10px;
       color: var(--orange);
       text-shadow: 0 0 10px var(--orange);
+      animation: glitch 7s infinite;
     }
 
     h2 {
@@ -83,18 +87,20 @@
       margin-bottom: 30px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      animation: flicker 5s infinite;
     }
 
     .button {
       display: inline-block;
       padding: 14px 32px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       background-color: var(--orange);
       color: black;
       text-decoration: none;
       border-radius: 8px;
       transition: background-color 0.3s;
       box-shadow: 0 0 12px var(--orange);
+      animation: glitch 9s infinite;
     }
 
     .button:hover {
@@ -105,9 +111,45 @@
       position: fixed;
       bottom: 20px;
       width: 100%;
-      font-size: 1.6rem;
+      font-size: 0.6rem;
       color: #444;
       text-align: center;
+    }
+
+    .tagline {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 0.8rem;
+      color: var(--orange);
+      text-shadow: 0 0 5px var(--orange);
+      animation: glitch 6s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); opacity: 1; }
+      5% { transform: translate(-1px, 1px); }
+      10% { transform: translate(1px, -1px); }
+      20% { transform: translate(-1px, 1px); opacity: 0.9; }
+      30% { transform: translate(1px, -1px); }
+      40% { transform: translate(0); opacity: 1; }
+      60% { transform: translate(0); }
+      80% { transform: translate(0); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      5% { opacity: 0.95; }
+      10% { opacity: 0.85; }
+      15% { opacity: 1; }
+      20% { opacity: 0.9; }
+      25% { opacity: 1; }
+      40% { opacity: 0.95; }
+      50% { opacity: 1; }
+      70% { opacity: 0.9; }
+      90% { opacity: 1; }
     }
   </style>
 </head>
@@ -120,12 +162,15 @@
         <h4>sneakyfreakybosinn</h4>
       </div>
     </div>
-    <h1>сухарики три корочки</h1>
+    <h1>СУХАРИКИ ТРИ КОРОЧКИ</h1>
     <h2>reject humanity, stay soy</h2>
     <a href="https://fakecrime.bio/bloodthirsty" class="button" target="_blank">Fakecrime</a>
   </div>
   <footer>
-    made with 💀 by gottaped
+    made with 💀 by soy
   </footer>
+  <div class="tagline">
+    захвачено @superdurable
+  </div>
 </body>
 </html>
