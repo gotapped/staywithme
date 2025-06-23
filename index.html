@@ -1,23 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <title>Сухарики Три Корочки</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roblox Cheats Status - Premium Edition</title>
   <style>
     :root {
-      --primary-cyan: #00ffe0;
-      --secondary-purple: #8a2be2;
-      --danger-red: #ff4c4c;
-      --warning-orange: #ff8c00;
-      --success-green: #00ff99;
-      --neutral-gray: #888;
-      --glass-bg: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --text-primary: #ffffff;
-      --text-secondary: #c4c4c4;
-      --text-muted: #888;
+      --pfp-url: url('https://i.pinimg.com/236x/74/2e/6f/742e6f38d2e84805caa63ec1fae14aea.jpg'); /* ← СЮДА СВОЮ АВУ */
+      --orange: #ff9900;
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
     * {
       margin: 0;
@@ -26,651 +19,113 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
-      background: radial-gradient(circle at 30% 30%, #2a0040, transparent 50%),
-                  radial-gradient(circle at 70% 70%, #002233, transparent 50%),
-                  radial-gradient(circle at 90% 20%, #3b0a43, transparent 50%),
-                  radial-gradient(circle at 20% 80%, #000c2d, transparent 60%);
-      background-color: #0e0e0e;
-      background-blend-mode: screen;
-      animation: swirl 30s infinite linear alternate;
-      color: var(--text-primary);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    @keyframes swirl {
-      0% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%; }
-      100% { background-position: 100% 100%, 0% 0%, 60% 40%, 100% 0%; }
-    }
-
-    .main-header {
-      text-align: center;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, rgba(0, 255, 224, 0.1) 0%, transparent 100%);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      margin-bottom: 40px;
-    }
-
-    .main-header h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 12px;
-      text-shadow: 0 0 40px rgba(0, 255, 224, 0.3);
-    }
-
-    .main-header p {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .section {
-      margin-bottom: 50px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      padding: 20px 25px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-    }
-
-    .section-icon {
-      font-size: 2rem;
-      filter: drop-shadow(0 0 10px currentColor);
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin: 5px 0 0;
-      font-weight: 400;
-    }
-
-    .trusted .section-header {
-      background: linear-gradient(135deg, rgba(0, 255, 224, 0.1), rgba(0, 255, 153, 0.05));
-      border-color: rgba(0, 255, 224, 0.3);
-      color: var(--primary-cyan);
-    }
-
-    .untrusted .section-header {
-      background: linear-gradient(135deg, rgba(255, 76, 76, 0.1), rgba(255, 140, 0, 0.05));
-      border-color: rgba(255, 76, 76, 0.3);
-      color: var(--danger-red);
-    }
-
-    .discontinued .section-header {
-      background: linear-gradient(135deg, rgba(136, 136, 136, 0.1), rgba(119, 119, 119, 0.05));
-      border-color: rgba(136, 136, 136, 0.3);
-      color: var(--neutral-gray);
-    }
-
-    .card-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
-
-    .card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 25px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary-cyan), var(--secondary-purple));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--primary-cyan);
-      box-shadow: 0 20px 40px rgba(0, 255, 224, 0.2);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .untrusted .card {
-      border-color: rgba(255, 76, 76, 0.2);
-    }
-
-    .untrusted .card:hover {
-      border-color: var(--danger-red);
-      box-shadow: 0 20px 40px rgba(255, 76, 76, 0.2);
-    }
-
-    .untrusted .card::before {
-      background: linear-gradient(90deg, var(--danger-red), var(--warning-orange));
-    }
-
-    .discontinued .card {
-      opacity: 0.7;
-      border-color: rgba(136, 136, 136, 0.2);
-    }
-
-    .discontinued .card:hover {
-      opacity: 1;
-      border-color: var(--neutral-gray);
-      box-shadow: 0 20px 40px rgba(136, 136, 136, 0.2);
-    }
-
-    .discontinued .card::before {
-      background: linear-gradient(90deg, var(--neutral-gray), #666);
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-
-    .card-name {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 5px;
-    }
-
-    .discontinued .card-name {
-      text-decoration: line-through;
-      color: var(--text-muted);
-    }
-
-    .trust-badge {
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .trust-high {
-      background: linear-gradient(135deg, var(--success-green), #00cc7a);
-      color: #000;
-    }
-
-    .trust-medium {
-      background: linear-gradient(135deg, var(--warning-orange), #ff7700);
-      color: #000;
-    }
-
-    .trust-low {
-      background: linear-gradient(135deg, var(--danger-red), #cc3333);
-      color: #fff;
-    }
-
-    .card-details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-    }
-
-    .detail-item {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .detail-item:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.02);
-    }
-
-    .detail-label {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-
-    .detail-value {
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .status-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 600;
-    }
-
-    .status-yes { color: var(--success-green); }
-    .status-no { color: var(--danger-red); }
-
-    .discord-fab {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5865f2, #404eed);
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      font-family: 'Press Start 2P', monospace;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-      border: none;
-      cursor: pointer;
+      height: 100vh;
+      text-align: center;
     }
 
-    .discord-fab:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 12px 35px rgba(88, 101, 242, 0.6);
+    .container {
+      padding: 30px;
     }
 
-    .discord-fab img {
-      width: 32px;
-      height: 32px;
-      filter: brightness(0) invert(1);
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .pfp {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      border: 4px solid var(--orange);
+      box-shadow: 0 0 20px var(--orange);
+      background-image: var(--pfp-url);
+      background-size: cover;
+      background-position: center;
     }
 
-    .card {
-      animation: fadeInUp 0.6s ease forwards;
+    .nicknames {
+      text-align: left;
+      border-left: 4px solid var(--orange);
+      padding-left: 20px;
     }
 
-    .card:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
-    .card:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
-    .card:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
-    .card:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
-    .card:nth-child(5) { animation-delay: 0.5s; opacity: 0; }
+    .nicknames h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--orange);
+    }
 
-    @media (max-width: 768px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-      
-      .card-details {
-        grid-template-columns: 1fr;
-      }
-      
-      .main-header {
-        padding: 30px 15px;
-      }
-      
-      .container {
-        padding: 0 15px;
-      }
-      
-      .section-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
+    .nicknames h4 {
+      font-size: 1.6rem;
+      color: #ccc;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: var(--orange);
+      text-shadow: 0 0 10px var(--orange);
+    }
+
+    h2 {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 1rem;
+      background-color: var(--orange);
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      box-shadow: 0 0 12px var(--orange);
+    }
+
+    .button:hover {
+      background-color: #e67e00;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      font-size: 1.6rem;
+      color: #444;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <header class="main-header">
-    <h1>⚡ Roblox Cheats Status</h1>
-    <p>Real-time status tracking for the most popular Roblox enhancement tools with comprehensive security analysis</p>
-  </header>
-
   <div class="container">
-    <!-- TRUSTED SECTION -->
-    <section class="section trusted">
-      <div class="section-header">
-        <div class="section-icon">🛡️</div>
-        <div>
-          <h2 class="section-title">Trusted & Verified</h2>
-          <p class="section-subtitle">Community-verified tools with proven track records</p>
-        </div>
+    <div class="profile">
+      <div class="pfp"></div>
+      <div class="nicknames">
+        <h3>сабака взрывака</h3>
+        <h4>sneakyfreakybosinn</h4>
       </div>
-      
-      <div class="card-grid">
-        <a href="https://discord.gg/matchalol" class="card-link">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-name">Matcha</div>
-                <div class="trust-badge trust-high">Verified</div>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="detail-item">
-                <div class="detail-label">Release</div>
-                <div class="detail-value">08/2024</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Trust Score</div>
-                <div class="detail-value" style="color: var(--success-green)">85/100</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Type</div>
-                <div class="detail-value">External</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Price</div>
-                <div class="detail-value">$11.50</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Resellers</div>
-                <div class="detail-value status-indicator status-yes">✓ Available</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Stream Safe</div>
-                <div class="detail-value status-indicator status-yes">✓ Protected</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://discord.gg/asmlol" class="card-link">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-name">Assembly</div>
-                <div class="trust-badge trust-high">Verified</div>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="detail-item">
-                <div class="detail-label">Release</div>
-                <div class="detail-value">2024</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Trust Score</div>
-                <div class="detail-value" style="color: var(--success-green)">80/100</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Type</div>
-                <div class="detail-value">External</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Price</div>
-                <div class="detail-value">$8.00</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Resellers</div>
-                <div class="detail-value status-indicator status-yes">✓ Available</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Stream Safe</div>
-                <div class="detail-value status-indicator status-yes">✓ Protected</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://projectvector.cc" class="card-link">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-name">Vector</div>
-                <div class="trust-badge trust-high">Verified</div>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="detail-item">
-                <div class="detail-label">Release</div>
-                <div class="detail-value">10/2024</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Trust Score</div>
-                <div class="detail-value" style="color: var(--success-green)">75/100</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Type</div>
-                <div class="detail-value">External</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Price</div>
-                <div class="detail-value">$10.00</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Resellers</div>
-                <div class="detail-value status-indicator status-yes">✓ Available</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Stream Safe</div>
-                <div class="detail-value status-indicator status-yes">✓ Protected</div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- UNTRUSTED SECTION -->
-    <section class="section untrusted">
-      <div class="section-header">
-        <div class="section-icon">⚠️</div>
-        <div>
-          <h2 class="section-title">Untrusted & Unverified</h2>
-          <p class="section-subtitle">New releases or questionable reputation - use with caution</p>
-        </div>
-      </div>
-      
-      <div class="card-grid">
-        <a href="https://aimmy.dev/" class="card-link">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-name">Aimmy</div>
-                <div class="trust-badge trust-medium">Unverified</div>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="detail-item">
-                <div class="detail-label">Release</div>
-                <div class="detail-value">09/2024</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Trust Score</div>
-                <div class="detail-value" style="color: var(--warning-orange)">47/100</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Type</div>
-                <div class="detail-value">AI-Based</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Price</div>
-                <div class="detail-value">Free</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Resellers</div>
-                <div class="detail-value status-indicator status-no">✗ None</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Stream Safe</div>
-                <div class="detail-value status-indicator status-no">✗ Not Safe</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://discord.gg/cframe" class="card-link">
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <div class="card-name">Evolve</div>
-                <div class="trust-badge trust-low">Risky</div>
-              </div>
-            </div>
-            <div class="card-details">
-              <div class="detail-item">
-                <div class="detail-label">Release</div>
-                <div class="detail-value">03/2025</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Trust Score</div>
-                <div class="detail-value" style="color: var(--danger-red)">30/100</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Type</div>
-                <div class="detail-value">External</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Price</div>
-                <div class="detail-value">$7.00</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Resellers</div>
-                <div class="detail-value status-indicator status-no">✗ None</div>
-              </div>
-              <div class="detail-item">
-                <div class="detail-label">Stream Safe</div>
-                <div class="detail-value status-indicator status-yes">✓ Protected</div>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- DISCONTINUED SECTION -->
-    <section class="section discontinued">
-      <div class="section-header">
-        <div class="section-icon">🚫</div>
-        <div>
-          <h2 class="section-title">Discontinued & Archived</h2>
-          <p class="section-subtitle">No longer maintained or shut down by developers</p>
-        </div>
-      </div>
-      
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-name">Atlas 💸</div>
-              <div class="trust-badge" style="background: var(--neutral-gray); color: #000;">Archived</div>
-            </div>
-          </div>
-          <div class="card-details">
-            <div class="detail-item">
-              <div class="detail-label">Release</div>
-              <div class="detail-value">07/2021</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Last Status</div>
-              <div class="detail-value">Never Detected</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Type</div>
-              <div class="detail-value">External</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">CPU Support</div>
-              <div class="detail-value">Both</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Play Style</div>
-              <div class="detail-value">Legit</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Stream Safe</div>
-              <div class="detail-value status-indicator status-no">✗ Not Safe</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-name">Hyper 🔒</div>
-              <div class="trust-badge" style="background: var(--neutral-gray); color: #000;">Archived</div>
-            </div>
-          </div>
-          <div class="card-details">
-            <div class="detail-item">
-              <div class="detail-label">Release</div>
-              <div class="detail-value">04/2024</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Last Status</div>
-              <div class="detail-value">Never Detected</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Type</div>
-              <div class="detail-value">External</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">CPU Support</div>
-              <div class="detail-value">Both</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Play Style</div>
-              <div class="detail-value">Legit</div>
-            </div>
-            <div class="detail-item">
-              <div class="detail-label">Stream Safe</div>
-              <div class="detail-value status-indicator status-yes">✓ Protected</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+    <h1>СУХАРИКИ ТРИ КОРОЧКИ</h1>
+    <h2>reject humanity, stay soy</h2>
+    <a href="https://fakecrime.bio/bloodthirsty" class="button" target="_blank">Fakecrime</a>
   </div>
-
-  <button class="discord-fab" onclick="window.open('https://discord.gg/gxxR72KdfN', '_blank')" aria-label="Join Discord Server">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKWBPH_zlCOipWfslhiZSjBNaVxiSzMfWaYg&s" alt="Discord">
-  </button>
+  <footer>
+    made with 💀 by soy
+  </footer>
 </body>
 </html>
