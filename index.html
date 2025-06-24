@@ -29,6 +29,8 @@
     .container {
       padding: 30px;
       animation: flicker 6s infinite alternate;
+      transition: transform 0.1s ease-out;
+      transform-style: preserve-3d;
     }
     .profile {
       display: flex;
@@ -126,6 +128,47 @@
       text-shadow: 0 0 5px var(--orange);
       pointer-events: none;
     }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(13, 13, 13, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .click-text {
+      font-size: 1.5rem;
+      color: var(--orange);
+      text-shadow: 0 0 15px var(--orange);
+      animation: pulse 2s infinite;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+      }
+      50% { 
+        opacity: 0.7; 
+        transform: scale(1.05);
+      }
+    }
+
     @keyframes flicker {
       0%, 100% { opacity: 1; }
       10% { opacity: 0.95; }
@@ -141,6 +184,12 @@
   </style>
 </head>
 <body>
+  <div class="overlay" id="overlay">
+    <div class="click-text">
+      CLICK TO CONTINUE<br>
+      <span style="font-size: 0.8rem; opacity: 0.7;">нажми чтобы продолжить</span>
+    </div>
+  </div>
   <div class="container">
     <div class="profile">
       <div class="pfp"></div>
@@ -148,7 +197,7 @@
         <h3>сабака взрывака</h3>
         <h4>sneakyfreakybosinn</h4>
         <div class="audio-controls">
-          <button class="play-pause-btn" onclick="togglePlay()">▶</button>
+          <button class="play-pause-btn" onclick="togglePlay()">⏸️</button>
           <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.5" oninput="setVolume(this.value)">
         </div>
       </div>
@@ -170,7 +219,55 @@
   <script>
     const audio = document.getElementById('background-music');
     const playPauseBtn = document.querySelector('.play-pause-btn');
+    const overlay = document.getElementById('overlay');
+    const container = document.querySelector('.container');
     let isPlaying = false;
+
+    // Обработчик движения мыши для 3D эффекта
+    document.addEventListener('mousemove', function(e) {
+      if (!overlay.classList.contains('hidden')) return; // Работает только после входа на сайт
+      
+      const rect = document.body.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const mouseX = e.clientX - centerX;
+      const mouseY = e.clientY - centerY;
+      
+      // Ограничиваем максимальное отклонение
+      const maxTilt = 15;
+      const tiltX = (mouseY / centerY) * -maxTilt; // Инвертировано
+      const tiltY = (mouseX / centerX) * maxTilt;  // Инвертировано
+      
+      // Применяем трансформацию
+      container.style.transform = `
+        perspective(1000px) 
+        rotateX(${tiltX}deg) 
+        rotateY(${tiltY}deg) 
+        translateZ(20px)
+      `;
+    });
+
+    // Возвращаем в исходное положение при уходе мыши
+    document.addEventListener('mouseleave', function() {
+      container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
+
+    // Обработчик клика по overlay для входа на сайт
+    overlay.addEventListener('click', function() {
+      // Убираем overlay
+      overlay.classList.add('hidden');
+      
+      // Запускаем музыку
+      audio.play().then(() => {
+        playPauseBtn.textContent = '⏸️';
+        isPlaying = true;
+      }).catch((error) => {
+        console.log('Ошибка воспроизведения:', error);
+        playPauseBtn.textContent = '▶';
+        isPlaying = false;
+      });
+    });
 
     function togglePlay() {
       if (isPlaying) {
